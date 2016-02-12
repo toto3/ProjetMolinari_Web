@@ -52,8 +52,7 @@ else
             
             <table  border="1px" >
                 <tr>
-                    <th>11couleur rvb</th>
-                    <th>couleur bvr</th>
+                    <th>couleur rvb</th>
                     <th>r</th>
                     <th>v</th>
                     <th>b</th>
@@ -90,18 +89,9 @@ else
           }
           
 
-    
           $c=$rouge.$vert.$bleu;
           $c=strtoupper($c) ;
           echo "<td><span style='background:#".$c."'>&nbsp;$c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-          
-          
-          
-          $c=$bleu.$rouge.$vert;
-          $c=strtoupper($c);
-          echo "<td><span style='background:#".$c."'>&nbsp;$c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-          
-          
           echo "<td>" . "".strtoupper($rouge) . "&nbsp;</td>";
           echo "<td>" . "".strtoupper($vert) . "&nbsp;</td>";
           echo "<td>" . "".strtoupper($bleu). "</td>";
@@ -115,7 +105,7 @@ else
         </article1>
 	
 	<footer role="contentinfo"> 
-		<p>&copy; 2016 Pascal Audet</p>
+		<p> 2016 Pascal Audet</p>
 	</footer> 
 </div>
        
