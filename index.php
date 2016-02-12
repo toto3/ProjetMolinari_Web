@@ -1,11 +1,8 @@
 <!DOCTYPE html>
 <?php
-  
    require_once 'library/config.php';
-   
-     require_once("manager/manager_monilari.php");
-     
-     require_once("classes/table_monilari.php");
+   require_once("manager/manager_monilari.php");
+   require_once("classes/table_monilari.php");
        
 if (isset($_GET['page']) && (int) $_GET['page'] > 0)
 {
@@ -56,11 +53,13 @@ else
                     <th>r</th>
                     <th>v</th>
                     <th>b</th>
+                    <th>jour</th>
+                    <th>heure</th>
                 </tr>
 
       <?php
   
-           $lesCouleurs = getCouleurs(0, 1, 60);
+           $lesCouleurs = getCouleurs(0, 1, 1360);
 
          for ($index = 0; $index < count($lesCouleurs); $index++)
          {
@@ -69,6 +68,8 @@ else
           $rouge = (string)$Couleur->get_rouge();
           $vert = (string)$Couleur->get_vert();
           $bleu = (string)$Couleur->get_bleu();
+          $jour = (string)$Couleur->get_jour();
+          $heure = (string)$Couleur->get_heure();
           echo "<tr>";
           
           $rouge=dechex($rouge);
@@ -95,6 +96,8 @@ else
           echo "<td>" . "".strtoupper($rouge) . "&nbsp;</td>";
           echo "<td>" . "".strtoupper($vert) . "&nbsp;</td>";
           echo "<td>" . "".strtoupper($bleu). "</td>";
+          echo "<td>" . "".$jour. "</td>";
+          echo "<td>" . "".$heure. "</td>";
           echo "</tr>";
           }
          ?>

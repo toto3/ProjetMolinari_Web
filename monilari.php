@@ -1,21 +1,12 @@
 <?php
 
     require_once 'library/config.php';
-   
-     require_once("manager/manager_monilari.php");
-     
-     require_once("classes/table_monilari.php");
-
-
+    require_once("manager/manager_monilari.php");
+    require_once("classes/table_monilari.php");
 
     $val_rouge="rr";
     $val_vert="vv";
-     $val_bleu="bb";
-//    $temps="0";
-//    $moment="0";
-//    $log="";
-//    $chiffA="0";
-//    $chiffB="0";
+    $val_bleu="bb";
     
     
  if (isset($_GET['rouge'])) 
@@ -30,6 +21,20 @@
  {
   $bleu=$_GET['bleu'];   
  }
+ 
+ if (isset($_GET['jour'])) 
+ {
+  $jour=$_GET['jour'];   
+ }
+ 
+ if (isset($_GET['heure'])) 
+ {
+  $heure=$_GET['heure'];   
+ }
+ 
+ //mettre validation anti injection ici
+ 
+ 
  
 //   if (isset($_GET['log'])) 
 // {
@@ -55,25 +60,19 @@
 // {
 //  $cur=$_GET['cur'];   
 // }
-// if (isset($_GET['jour'])) 
-// {
-//  $jour=$_GET['jour'];   
-// }
-//  if (isset($_GET['heure'])) 
-// {
-//  $heure=$_GET['heure'];   
-// }
- 
+
  
    
                 
                 
- echo "avant<br>";
+ 
  $table = new table_monilari();
  $table->set_rouge($rouge);
  $table->set_vert($vert);
  $table->set_bleu($bleu);
- echo "avantajoutcouuer<br>";
-$ret=ajoutCouleurs($table);//$log,$temps,$moment,$chiffA,$chiffB,$cur,$jour,$heure)
-echo "apres<br>";
+ $table->set_jour($jour);
+ $table->set_heure($heure);
+ 
+ $ret=ajoutCouleurs($table);//$log,$temps,$moment,$chiffA,$chiffB,$cur,$jour,$heure)
+
 ?>

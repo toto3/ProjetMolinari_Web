@@ -40,8 +40,10 @@ function ajoutCouleurs($tableMonilari) {//$val_rouge,$val_vert,$val_bleu,$temps,
     $rouge = $table->get_rouge();
     $vert = $table->get_vert();
     $bleu = $table->get_bleu();
+    $jour = $table->get_jour();
+    $heure = $table->get_heure();
 
-    $query2 = "INSERT INTO monilari ( rouge,vert,bleu) Values('" . $rouge . "','" . $vert . "','" . $bleu . "')"; //'".$temps."','".$moment."','".$chiffA."','".$chiffB."','".$cur."','".$jour."','".$heure."')";
+    $query2 = "INSERT INTO monilari ( rouge,vert,bleu,jour,heure) Values('" . $rouge . "','" . $vert . "','" . $bleu . "','" . $jour . "','" . $heure . "')"; //'".$temps."','".$moment."','".$chiffA."','".$chiffB."','".$cur."','".$jour."','".$heure."')";
     echo "sql::::" . $query2;
     $result2 = dbQuery($query2); //or die ("Query Failed ".mysql_error());
     echo $result2;
@@ -55,7 +57,7 @@ function getCouleurs($REFind,$page,$itemPerPage = 2)
     $offset = ($page - 1) * $itemPerPage;
     $query;
     if ($REFind == 0) {
-        $query = "SELECT rouge, vert,bleu FROM  monilari order by id desc LIMIT $offset, $itemPerPage";
+        $query = "SELECT rouge, vert,bleu,jour,heure FROM  monilari order by id desc LIMIT $offset, $itemPerPage";
     } else {
         $query = "SELECT * FROM monilari WHERE id=".$REFind." ;";
     }
@@ -74,6 +76,8 @@ function getCouleurs($REFind,$page,$itemPerPage = 2)
         $T->set_rouge($rouge);
         $T->set_vert($vert);
         $T->set_bleu($bleu);
+        $T->set_jour($jour);
+        $T->set_heure($heure);
      
         $couleusData[$couleusID] = $T;
         $couleusID = $couleusID + 1;

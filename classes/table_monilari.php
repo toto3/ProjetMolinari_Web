@@ -23,13 +23,13 @@ class table_monilari {
 //  private $chiffA;
 //  private $chiffB;
 //  private $cur;
-//  private $jour;
-//  private $heure;
+  private $jour;
+  private $heure;
   
     
     
 
-    function __constructor($id, $rouge, $vert, $bleu)
+    function __constructor($id, $rouge, $vert, $bleu,$jour,$heure)
     {
         $this->id = $id;
         $this->rouge = $rouge;
@@ -40,8 +40,8 @@ class table_monilari {
 //        $this->chiffA=$chiffA;
 //        $this->chiffB=$chiffB;
 //        $this->cur=$cur;
-//        $this->jour=$jour;
-//        $this->heure=$heure;
+        $this->jour=$jour;
+        $this->heure=$heure;
     }
 
     function set_id($id)
@@ -87,14 +87,14 @@ class table_monilari {
 //    {
 //        $this->cur = $cur;
 //    }
-//    function set_jour($jour)
-//    {
-//        $this->jour = $jour;
-//    }
-//    function set_heure($heure)
-//    {
-//        $this->heure = $heure;
-//    }  
+    function set_jour($jour)
+    {
+        $this->jour = $jour;
+    }
+    function set_heure($heure)
+    {
+        $this->heure = $heure;
+    }  
     
     
     function get_id()
@@ -140,14 +140,14 @@ class table_monilari {
 //    {
 //        return $this->cur;
 //    } 
-//    function get_jour()
-//    {
-//        return $this->jour;
-//    }
-//    function get_heure()
-//    {
-//        return $this->heure;
-//    }
+    function get_jour()
+    {
+        return $this->jour;
+    }
+    function get_heure()
+    {
+        return $this->heure;
+    }
     
  }
 ?>
