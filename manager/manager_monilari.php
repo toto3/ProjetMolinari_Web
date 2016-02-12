@@ -55,7 +55,7 @@ function getCouleurs($REFind,$page,$itemPerPage = 2)
     $offset = ($page - 1) * $itemPerPage;
     $query;
     if ($REFind == 0) {
-        $query = "SELECT rouge, vert,bleu FROM  monilari order by id desc ";//LIMIT $offset, $itemPerPage";
+        $query = "SELECT rouge, vert,bleu FROM  monilari order by id desc LIMIT $offset, $itemPerPage";
     } else {
         $query = "SELECT * FROM monilari WHERE id=".$REFind." ;";
     }

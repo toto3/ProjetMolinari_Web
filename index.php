@@ -61,7 +61,7 @@ else
 
       <?php
   
-           $lesCouleurs = getCouleurs(0, 1, 20);
+           $lesCouleurs = getCouleurs(0, 1, 60);
 
          for ($index = 0; $index < count($lesCouleurs); $index++)
          {
