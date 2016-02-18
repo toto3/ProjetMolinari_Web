@@ -34,7 +34,7 @@ require_once("./library/database.php");
 
 
 
-function ajoutCouleurs($tableMonilari) {//$val_rouge,$val_vert,$val_bleu,$temps,$moment,$chiffA,$chiffB,$cur,$jour,$heure)
+function ajoutCouleursOLD($tableMonilari) {//$val_rouge,$val_vert,$val_bleu,$temps,$moment,$chiffA,$chiffB,$cur,$jour,$heure)
 
     $table = $tableMonilari;
     $rouge = $table->get_rouge();
@@ -51,6 +51,32 @@ function ajoutCouleurs($tableMonilari) {//$val_rouge,$val_vert,$val_bleu,$temps,
     //header('Location: listeDesPoi.php');
     return 0;
 }
+
+
+function ajoutCouleurs($tableMonilari)
+{
+    $table = $tableMonilari;
+    $rouge = $table->get_rouge();
+    $vert = $table->get_vert();
+    $bleu = $table->get_bleu();
+    $jour = $table->get_jour();
+    $heure = $table->get_heure();
+    
+    $sql = "INSERT INTO monilari (rouge,vert,bleu,jour,heure) Values(?,?,?,?,?)";
+
+    $mysqli=dbConnection();
+    $stmt = $mysqli->prepare($sql);/* Prepare statement */
+    /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
+    $stmt->bind_param('sssss',$rouge,$vert,$bleu,$jour,$heure);
+    if($stmt === false) {
+      trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $mysqli->error, E_USER_ERROR);
+    }
+    $stmt->execute();/* Execute statement */
+    $stmt->close();
+}
+
+
+
 
 function getCouleurs($REFind,$page,$itemPerPage = 2) 
 {

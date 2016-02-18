@@ -56,4 +56,10 @@ function dbInsertId()
         global $dbConn;
         return $dbConn->insert_id;
 }
+
+function dbConnection()
+{
+        global $dbConn;
+        return $dbConn;
+}
 ?>
