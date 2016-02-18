@@ -57,6 +57,14 @@ function dbInsertId()
         return $dbConn->insert_id;
 }
 
+
+function dbPrepare($sql)
+{
+       global $dbConn;
+       return $dbConn->prepare($sql);/* Prepare statement */
+}
+
+
 function dbConnection()
 {
         global $dbConn;

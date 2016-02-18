@@ -52,7 +52,6 @@ function ajoutCouleursOLD($tableMonilari) {//$val_rouge,$val_vert,$val_bleu,$tem
     return 0;
 }
 
-
 function ajoutCouleurs($tableMonilari)
 {
     $table = $tableMonilari;
@@ -63,14 +62,13 @@ function ajoutCouleurs($tableMonilari)
     $heure = $table->get_heure();
     
     $sql = "INSERT INTO monilari (rouge,vert,bleu,jour,heure) Values(?,?,?,?,?)";
-
-    $mysqli=dbConnection();
-    $stmt = $mysqli->prepare($sql);/* Prepare statement */
+ 
+    $stmt =dbPrepare($sql);/* Prepare statement */
     /* Bind parameters. TYpes: s = string, i = integer, d = double,  b = blob */
     $stmt->bind_param('sssss',$rouge,$vert,$bleu,$jour,$heure);
     if($stmt === false) {
-      trigger_error('Wrong SQL: ' . $sql . ' Error: ' . $mysqli->error, E_USER_ERROR);
-    }
+      trigger_error('Wrong SQL: ' . $sql . ' Error: ' , E_USER_ERROR);
+    }   
     $stmt->execute();/* Execute statement */
     $stmt->close();
 }
