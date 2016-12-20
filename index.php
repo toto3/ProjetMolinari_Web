@@ -31,7 +31,7 @@ else
 		<nav role="navigation"> 
 		<ul>
 		<li id="current" ><a id="current" href="#">Accueil</a></li>
-                 <li><a href="http://localhost:8888/Monilari/monilari.php?rouge=11&vert=22&bleu=33">test2</a></li>
+                 <li><a href="http://localhost:8888/site/page.php?rouge=11&vert=22&bleu=33">test2</a></li>
 <!--		<li><a href="audio.html">Audio</a></li> 
 		<li><a href="video.html">Vidéo</a></li> 
                  <li><a href="autres.html">Autres</a></li>
